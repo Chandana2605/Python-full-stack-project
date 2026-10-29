@@ -1,0 +1,162 @@
+
+/* App.css — Pastel theme */
+
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --text: #334155;
+  --muted: #64748b;
+
+  /* Pastel palette */
+  --primary: #8aa0ff;          /* pastel indigo */
+  --primary-ink: #2b3a73;
+  --accent-pink: #f6c6ea;
+  --accent-sky: #a3d8f4;
+  --accent-mint: #cffde1;
+  --accent-peach: #fde49c;
+  --accent-lavender: #e3e8ff;
+
+  --ring: rgba(138, 160, 255, 0.45);
+  --shadow: 0 10px 30px rgba(60, 64, 67, 0.08);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; background: var(--bg); }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+    "Noto Sans", "Ubuntu", "Cantarell", Arial, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  color: var(--text);
+}
+
+/* App shell */
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* Navbar */
+.nav {
+  background: linear-gradient(135deg, var(--accent-sky), var(--accent-lavender));
+  color: #1e293b;
+  box-shadow: var(--shadow);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  font-size: 1.15rem;
+}
+.nav-items {
+  margin-left: auto;
+  display: flex; gap: 0.5rem;
+}
+.tab {
+  background: rgba(255,255,255,0.6);
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.8);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.tab:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.tab.active {
+  background: var(--surface);
+  color: var(--primary-ink);
+  border-color: var(--accent-lavender);
+}
+
+/* Sections */
+.section {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+}
+
+/* Inputs */
+.input, .select, .textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 2px solid #eef2ff;
+  outline: none;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #fbfdff;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--accent-lavender);
+  box-shadow: 0 0 0 6px var(--ring);
+}
+.textarea { min-height: 110px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 1rem; border-radius: 12px;
+  border: none; cursor: pointer; font-weight: 600;
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-soft {
+  background: linear-gradient(135deg, var(--accent-mint), var(--accent-peach));
+  color: #1f2937;
+}
+.btn-outline {
+  background: transparent; border: 2px dashed var(--accent-sky);
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  border: 2px solid #eef2ff;
+  border-radius: 16px; box-shadow: var(--shadow);
+  padding: 1rem;
+}
+.card-header { display: flex; justify-content: space-between; align-items: center; }
+.card-title { font-weight: 800; font-size: 1.05rem; }
+.card-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.badge {
+  padding: 0.35rem 0.6rem; border-radius: 999px;
+  font-size: 0.75rem; background: #f1f5f9; border: 1px solid #e2e8f0;
+}
+
+/* Grid for books */
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Filter bar */
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 200px 200px 200px 140px;
+  gap: 0.6rem; align-items: end;
+}
+@media (max-width: 900px) {
+  .filter { grid-template-columns: 1fr 1fr; }
+}
+
+/* Small helpers */
+.muted { color: var(--muted); }
+.spacer { height: 1rem; }
+.kbd { background: #edf2ff; border: 1px solid #dbeafe; padding: 0.1rem 0.35rem; border-radius: 6px; }
